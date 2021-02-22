@@ -64,4 +64,13 @@ public class AdicionaContatoServlet extends HttpServlet {
 		out.println("</body>");
 		out.println("</html>");
 	}
+	
+	protected void doGet(HttpServletRequest req, HttpServletResponse res) {
+		
+	}
+
+	protected void doPost(HttpServletRequest req, HttpServletResponse res) {
+	  
+	}
+	
 }
