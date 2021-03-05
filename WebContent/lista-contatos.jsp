@@ -25,9 +25,14 @@
       <c:forEach var="contato" items="${dao.lista}" varStatus="id">
         <tr bgcolor="#${id.count % 2 == 0 ? 'dcdcdc' : 'ffffff'}">
           <td>${contato.nome}</td>
-          <td><c:if test="${not empty contato.email}">
-              <a href="malito:${contato.email}">${contato.email}</a>
-            </c:if></td>
+          <td><c:choose>
+              <c:when test="${not empty contato.email}">
+                <a href="malito:${contato.email}">${contato.email}</a>
+              </c:when>
+              <c:otherwise>
+                Email não encontrado
+              </c:otherwise>
+            </c:choose></td>
           <td>${contato.endereco}</td>
           <td>${contato.dataNascimento.time}</td>
       </c:forEach>
