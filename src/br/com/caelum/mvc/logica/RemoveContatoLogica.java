@@ -26,7 +26,7 @@ public class RemoveContatoLogica implements Logica {
 			System.out.println("Exclusão não realizada");
 		}
 		
-		return "lista-contatos.jsp";
+		return "mvc?logica=ListaContatosLogica";
 	}
 
 }
