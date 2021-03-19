@@ -47,6 +47,7 @@ public class ContatoDao {
 
 			while (rs.next()) {
 				Contato contato = new Contato();
+				contato.setId(rs.getLong("id"));
 				contato.setNome(rs.getString("nome"));
 				contato.setEmail(rs.getString("email"));
 				contato.setEndereco(rs.getString("endereco"));
@@ -96,6 +97,22 @@ public class ContatoDao {
 		} catch (SQLException e) {
 			throw new DaoException(e);
 		}
+	}
+	
+	public boolean exclui(Contato contato) {
+
+		int count = 0;
+		
+		try {
+			PreparedStatement stmt = this.con.prepareStatement("delete from contatos where id = ?");
+			stmt.setLong(1, contato.getId());
+			count = stmt.executeUpdate();
+			stmt.close();
+		} catch (SQLException e) {
+			throw new DaoException(e);
+		}
+		
+		return count > 0 ? true : false;
 	}
 
 	public List<Contato> startsWithC() {
