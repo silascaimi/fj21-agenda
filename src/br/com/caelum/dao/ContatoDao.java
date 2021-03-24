@@ -15,8 +15,8 @@ import br.com.caelum.modelo.Contato;
 public class ContatoDao {
 	private Connection con;
 
-	public ContatoDao() {
-		this.con = new ConnectionFactory().getConnection();
+	public ContatoDao(Connection connection) {
+		this.con = connection;
 	}
 
 	public void adiciona(Contato contato) {
